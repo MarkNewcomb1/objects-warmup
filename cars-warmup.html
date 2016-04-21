@@ -24,21 +24,25 @@ Hello
             returns true if the car's milage is less than the car's price
 */
     
-    function Car (individualCar) {
-        this.individualCar = individualCar;
+    function Car (make, model, year, miles, color, price) {
+            this.make = make;
+            this.model = model;
+            this.year = parseInt(year);
+            this.miles = miles;
+            this.color = color;
+            this.price = parseInt(price);
+        
+        
         this.madeBefore2000 = function () {
-            if (this.individualCar[2] > 1999 ){
-                return false;
-            } else {
-                return true;
-            }
+            return this.year < 2000;
         }
+        
         this.matchesColor = function (color) {
-            if (this.individualCar[4] == color) {
-                return true;
-            } else {
-                return false;
-            }
+            return color.indexOf(color) != -1;
+
+        }
+        this.isGoodDeal = function() {
+            return this.miles < this.price;
         }
     }
 
@@ -58,15 +62,15 @@ Hello
     function tests() {
         var testCar = new Car(['Honda','Accord','2015',17000,'bright blue', 17999]);
         console.log(testCar.madeBefore2000() == false);
-        console.log(testCar.matchesColor("bright blue") == true);
+        console.log(testCar.matchesColor("blue") == true);
         console.log(testCar.matchesColor("red") == false);
-//        console.log(testCar.isGoodDeal() == true);
+        console.log(testCar.isGoodDeal() == true);
 
-//        var testCarTwo = new Car('Ford','Tarus','1990',137000,'white',10999);
-//        console.log(testCarTwo.madeBefore2000() == true);
-//        console.log(testCarTwo.matchesColor("white") == true);
-//        console.log(testCarTwo.matchesColor("blue") == false);
-//        console.log(testCar.isGoodDeal() == false)
+        var testCarTwo = new Car('Ford','Tarus','1990',137000,'white',10999);
+        console.log(testCarTwo.madeBefore2000() == true);
+        console.log(testCarTwo.matchesColor("white") == true);
+        console.log(testCarTwo.matchesColor("blue") == false);
+        console.log(testCarTwo.isGoodDeal() == false)
     }
     tests();
 
