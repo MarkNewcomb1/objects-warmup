@@ -38,7 +38,7 @@ Hello
         }
         
         this.matchesColor = function (color) {
-            return color.indexOf(color) != -1;
+            return this.color.indexOf(color) != -1;
 
         }
         this.isGoodDeal = function() {
@@ -60,7 +60,7 @@ Hello
     ];
 
     function tests() {
-        var testCar = new Car(['Honda','Accord','2015',17000,'bright blue', 17999]);
+        var testCar = new Car('Honda','Accord','2015',17000,'bright blue', 17999);
         console.log(testCar.madeBefore2000() == false);
         console.log(testCar.matchesColor("blue") == true);
         console.log(testCar.matchesColor("red") == false);
